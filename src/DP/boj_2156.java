@@ -20,8 +20,10 @@ public class boj_2156 {
         dp[0] = arr[0];
         if (n>=2)
             dp[1] = dp[0] + arr[1];
-        if (n>=3)
+        if (n>=3){
             dp[2] = max(dp[1], arr[2]+arr[1]);
+            dp[2] = max(dp[0] + arr[2], dp[2]);
+        }
 
         for (int i=3;i<n;i++) {
             // i번째 것 먹을때, i-1번째 것 먹는 경우 vs i-1번째 것 안먹는 경우
