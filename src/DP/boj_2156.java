@@ -3,6 +3,7 @@ import java.util.*;
 
 // problem URL: https://www.acmicpc.net/problem/2156
 // solution from: https://wootool.tistory.com/94
+// fo BOJ: public class Main
 
 public class boj_2156 {
     public static void main(String[] args) {
