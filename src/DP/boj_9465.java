@@ -1,9 +1,11 @@
 package DP;
+
 import java.util.*;
 
 // dynamic programming
 // I solved!!!!!!!!! no reference!!!!!!!!
 public class boj_9465 {
+
     public static void main (String[] args) {
         Scanner scanner = new Scanner(System.in);
         int T = scanner.nextInt();
