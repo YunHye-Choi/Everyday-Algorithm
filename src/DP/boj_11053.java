@@ -1,6 +1,6 @@
 package DP;
 import java.util.*;
-// 복습하기....
+// 정답여부 확인 안함
 // 참고블로그 : https://wootool.tistory.com/96
 public class boj_11053 {
     public static void main (String[] args)  {
