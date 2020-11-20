@@ -12,7 +12,7 @@ public class boj_11053 {
         for (int i = 0; i < n; i ++) {
             arr[i] = scanner.nextInt();
         }
-        // 각 dp에 그 요소(arr[i])까지의 최장길이 증가 수열을 j로 순회하며(안쪽 for문) 구하고
+        // 각 dp에 그 요소(arr[i])로 끝나는 최장길이 증가 수열을 j로 순회하며(안쪽 for문) 구하고
         // dp 중 최대값을 출력하면 된다
         dp[0] = 1;
         for (int i = 1; i < n; i ++) {
