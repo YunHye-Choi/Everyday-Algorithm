@@ -1,6 +1,7 @@
 package DP;
 import java.util.Scanner;
 
+// 문제: https://www.acmicpc.net/problem/1699
 // 해결중!!
 // 고려하지 못한 경우: 제곱수+1, 제곱수+2, 제곱수+3.. 이런 경우만 생각하느라 18같은 경우 (9+9)를 고려 못했다..!
 // 풀이보기 아까우니까 더 생각해보자!
