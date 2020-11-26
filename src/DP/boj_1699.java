@@ -2,36 +2,25 @@ package DP;
 import java.util.Scanner;
 
 // 문제: https://www.acmicpc.net/problem/1699
-// 해결중!!
-// 고려하지 못한 경우: 제곱수+1, 제곱수+2, 제곱수+3.. 이런 경우만 생각하느라 18같은 경우 (9+9)를 고려 못했다..!
-// 풀이보기 아까우니까 더 생각해보자!
+// 풀이: https://kosaf04pyh.tistory.com/235
+// 혼자 생각하다 포기햇는데 생각보다 너무 단순하다..
+// 풀이를 보면 쉬운데.. 왜 머리에서 풀이가 생각이 안날까?
+// 깨달은점: 규칙이 지저분하다는 생각이 들면 과감히 버린다
+// index 증가 규칙 이런것좀 찾지 말고 근본적인 수열의 규칙에 집중하자
 
 public class boj_1699 {
     public static void main (String args[]) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int q= 1;
-        while (Math.pow(q,2) < n)
-            q++;
-        int size = (int)Math.pow(q,2) ;
-        int dp[] = new int [size];
+        int dp[] = new int [n+1];
 
-        int j = 0, k = 0;
-        for(int i=0;i<size;i++) {
-            if (i == j) { // 제곱수가 나타나는 주기마다 dp에 1삽입
-                dp[i] = 1;
-                if (i == 0)
-                    k = 3;
-                else k += 2;
-                j += k;
-                for (int x = 0; x < k-1 && i < n ;x++) {
-                    dp[x+i+1] = dp[x] + dp[i];
-                }
+        for(int i = 1; i <= n; i ++) {
+            dp[i] = i;
+            for(int j = 1; j * j <= i; j++){
+                dp[i] = Math.min(dp[i], dp[i-j*j]+1);
             }
         }
-        for(int i=0;i<n;i++)
-            System.out.println((i+1)+": "+dp[i]);
-        System.out.println(dp[n-1]);
 
+        System.out.println(dp[n]);
     }
 }
