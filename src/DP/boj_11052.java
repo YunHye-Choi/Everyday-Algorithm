@@ -10,6 +10,8 @@ public class boj_11052 {
         for (int i = 0; i < n; i++) {
             p[i] = scanner.nextInt();
         }
+        // 1월 2일부터 진짜 파이팅!!
+        System.out.println("asdf");
 
     }
 }
