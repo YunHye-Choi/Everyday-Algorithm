@@ -3,7 +3,7 @@ package Basics;
 import java.util.Arrays;
 import java.util.Scanner;
 
-// 문제: https://www.acmicpc.net/problem/11650
+// 문제: https://www.acmicpc.net/problem/11651
 // 풀이: https://st-lab.tistory.com/110
 
 public class boj_11651 {
