@@ -15,14 +15,15 @@ public class boj_10825 {
             students.add(new Student(sc.next(), sc.nextInt(), sc.nextInt(), sc.nextInt()));
         }
         //국영수 순으로 점수 내림차, 이름 오름차
-        Collections.sort(students, new Comparator<>() {
+        /*Collections.sort(students, new Comparator<>() {
             @Override
             public int compare (Student s1, Student s2) {
                 if (s1.kor < s2.kor){
                     return s1.kor-s2.kor;
                 }
+                else return s1.eng-s2.eng;
             }
-        })
+        })*/
 
     }
 

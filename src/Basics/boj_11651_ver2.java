@@ -3,13 +3,13 @@ package Basics;
 import java.util.Arrays;
 import java.util.Scanner;
 
-// 문제: https://www.acmicpc.net/problem/11650
+// 문제: https://www.acmicpc.net/problem/11651
 // 풀이: https://st-lab.tistory.com/110
 
-public class boj_11650 {
+public class boj_11651_ver2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int  n = scanner.nextInt();
+        int n = scanner.nextInt();
 
         int [][] arr = new int[n][2];
 
@@ -19,10 +19,10 @@ public class boj_11650 {
         }
         // 람다식 이용 (자세한 것은 블로그)
         Arrays.sort(arr, (e1, e2)-> {
-            if (e1[0] == e2[0]) {
-                return e1[1] - e2[1];
-            } else {
+            if (e1[1] == e2[1]) {
                 return e1[0] - e2[0];
+            } else {
+                return e1[1] - e2[1];
             }
         });
 
