@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 // 문제: https://www.acmicpc.net/problem/11651
 // 풀이: https://st-lab.tistory.com/110
-
+// ver2는 블로그 참고해서 풀기!
 public class boj_11651_ver2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
