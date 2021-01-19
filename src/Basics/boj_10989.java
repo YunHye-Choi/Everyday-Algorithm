@@ -6,10 +6,10 @@ import java.io.IOException;
 
 // 문제: https://www.acmicpc.net/problem/10989
 // 해답: https://st-lab.tistory.com/107
-/** 시간제한은 3초인데 2300ms로 해결함.
-/* ▶ 카운팅 정렬 이용하는 방법에 대해 포스팅 하고 ver2파일 만들어서 풀고 위 블로그처럼 두가지 풀이로 포스팅 작성
-/* ▶ 속도가 빠른 입출력에 대해서 포스팅 작성 & 사용법 익히기
- */
+
+// Arrays.sort()이용. 시간제한은 3초, 해결시간은 2300ms로 해결함.
+// (촉박하게 해결, 속도 좋지 못함)
+
 public class boj_10989 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
