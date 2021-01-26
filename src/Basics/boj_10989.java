@@ -8,7 +8,7 @@ import java.io.IOException;
 // 해답: https://st-lab.tistory.com/107
 
 // Arrays.sort()이용. 시간제한은 3초, 해결시간은 2300ms로 해결함.
-// (촉박하게 해결, 속도 좋지 못함)
+// (촉박하게 해결, 속도 좋지 못함) -> 포스팅하기!
 
 public class boj_10989 {
     public static void main(String[] args) throws IOException {
