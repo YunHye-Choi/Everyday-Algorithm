@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// 문제: https://acmicpc.net/problem/11652
+
 public class boj_11652 {
     public static void main (String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -21,23 +23,22 @@ public class boj_11652 {
         pairs.add(new Pair(arr[0], 1));
         int j = 0;
         for (int i = 1; i < n; i++) {
-            System.out.println(i);
             if(arr[i] == arr[i-1]) {
-                pairs.add(j, new Pair(arr[i], pairs.get(j).cnt+1));
-                System.out.println(new Pair(arr[i], pairs.get(j).cnt));
+                int cnt = pairs.remove(j).cnt+1;
+                pairs.add(j, new Pair(arr[i], cnt));
             } else {
                 j++;
                 pairs.add(j, new Pair(arr[i], 1));
-                System.out.println(new Pair(arr[i], pairs.get(j).cnt));
             }
         }
-        System.out.println("size: " + pairs.size());
-        long max = 0;
+        long maxnum = 0; int maxcnt = 0;
         for (Pair pair:pairs) {
-            System.out.println(pair);
-            max = pair.cnt > max ? pair.num : max;
+            if (pair.cnt > maxcnt) {
+                maxnum = pair.num;
+                maxcnt = pair.cnt;
+            }
         }
-        System.out.println(max);
+        System.out.println(maxnum);
     }
     static class Pair {
         public long num;
@@ -46,10 +47,6 @@ public class boj_11652 {
         public Pair(long n, int c) {
             num = n;
             cnt = c;
-        }
-        @Override
-        public String toString(){
-            return num + ": " + cnt +"개";
         }
     }
 }
