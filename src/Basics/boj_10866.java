@@ -16,6 +16,7 @@ public class boj_10866 {
             commands[i] = br.readLine();
         }
         Deque deque = new Deque();
+        //
 
     }
     static class Deque {
