@@ -22,8 +22,8 @@ class Solution {
 
 // 프로그래머스 다른 사람의 풀이 
 // https://programmers.co.kr/learn/courses/30/lessons/42576/solution_groups?language=java&type=all
-// 접근법: 이름(String)을 key, 해당 이름을 가진 사람 수(Integer)를 value로 하는 해시에서
-//         completion을 가지는 
+// 접근법: 이름(String)을 key, 해당 이름을 가진 사람 수(Integer)를 value로 하는 해시 사용
+// "participant 에서 인원수 세고, completion 에서 --"
 import java.util.HashMap;
 
 class Solution {
