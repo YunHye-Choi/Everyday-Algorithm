@@ -28,7 +28,7 @@ import java.util.HashMap;
 
 class Solution {
     public String solution(String[] participant, String[] completion) {
-        String answer = ""
+        String answer = "";
 
         // java 에서 HashMap 클래스 사용하기 key:String(이름), value: integer(명수)
 
