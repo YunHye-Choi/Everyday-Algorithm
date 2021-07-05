@@ -9,9 +9,9 @@ public class Main {
 		for (int i = 0; i < line.length(); i ++) {
 			arr[i] = arrch[i] - '0';
 		}
-		int ans = 0;
+		long ans = 0;
 		for (int num : arr) {
-			if (num == 0 || ans == 0) {
+			if (num <= 1 || ans <= 1) {
 				ans += num;
 			} else {
 				ans *= num;
