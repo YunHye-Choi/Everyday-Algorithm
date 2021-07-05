@@ -15,6 +15,12 @@ public class Main{
 	public static int[] indegree = new int [100001];
 	public static int[] times = new int [100001];
 	
+	// 기본적인 topologySort와 다른 점
+	// result가 저장하는 것은 수강시간!
+	// result가 LL 형태가 아니라 배열임
+	// 진입 차수가 0인 것부터 기준으로 거기에 연결된 노드의 result를 항상 최대로 업데이트
+	// idx가 작은 것이 선수과목이 아니더라도, 진입차수가 0인 것부터 접근하고 그에 연결된 것의 
+	// 값을 업데이트 하는 방식이므로 idx가 작은 것과 선수과목여부는 연관없음
 	public static void topologySort(){
 		// 기존 result는 add로 적용되나, 이번 경우는 순서대로 출력해야 하므로
 		// c타입 배열을 사용하여 순서가 뒤섞이는 것을 막음
@@ -37,7 +43,7 @@ public class Main{
 			int now = q.poll();
 
 			for (int i : graph.get(now)) {
-				// 
+				// 왜 max인지는 맨 위 주석 참고!
 				result[i] = Math.max(result[i], result[now] + times[i]);
 				// 해당 원소와 연결된 노드들의 진입차수에서 1을 빼기
 				indegree[i]--;
