@@ -1,31 +1,27 @@
 import java.util.*;
 
-public class Main {
-
-    public static int n;
-    public static ArrayList<Integer> arrayList = new ArrayList<>();
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-
-        for (int i = 0; i < n; i++) {
-            arrayList.add(sc.nextInt());
-        }
-
-        Collections.sort(arrayList);
-
-        int result = 0; // 총 그룹의 수
-        int count = 0; // 현재 그룹에 포함된 모험가의 수
-
-        for (int i = 0; i < n; i++) { // 공포도를 낮은 것부터 하나씩 확인하며
-            count += 1; // 현재 그룹에 해당 모험가를 포함시키기
-            if (count >= arrayList.get(i)) { // 현재 그룹에 포함된 모험가의 수가 현재의 공포도 이상이라면, 그룹 결성
-                result += 1; // 총 그룹의 수 증가시키기
-                count = 0; // 현재 그룹에 포함된 모험가의 수 초기화
-            }
-        }
-
-        System.out.println(result);
-    }
+public class Main{
+	public static void main (String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int n = sc.nextInt();
+		int [] arr = new int [n];
+		for (int i = 0; i < n; i ++) {
+			arr[i] = sc.nextInt();
+		}
+		
+		Arrays.sort(arr);
+		int count = 0, result = 0;
+		for(int num : arr) {
+			count ++;
+            // 모험가 공포도가 그룹의 모험가 수보다 작거나 같은 경우,
+            // 최대한 많은 그룹을 만들어야 하므로, 바로 그룹을 생성해준다
+			if (num <= count){
+				count = 0;
+				result++;
+			}
+		}
+		
+		System.out.println(result);
+	}
 }
