@@ -117,6 +117,7 @@ class Food implements Comparable<Food> {
 class Solution {
     public int solution(int[] food_times, long k) {
         // 전체 음식을 먹는 시간보다 k가 크거나 같다면 -1
+        // (K초 안에 모든 음식을 다 먹어버리면 더이상 먹을 음식이 없게 됨)
         long summary = 0;
         for (int i = 0; i < food_times.length; i++) {
             summary += food_times[i];
@@ -134,14 +135,16 @@ class Solution {
         long previous = 0; // 직전에 다 먹은 음식 시간
         long length = food_times.length; // 남은 음식의 개수
 
-        // summary + (현재의 음식 시간 - 이전 음식 시간) * 현재 음식 개수와 k 비교
+        // (summary + (현재의 음식시간 - 이전 음식 시간) * 현재 음식 개수)와 k 비교
+        // k보다 작거나 같아야 k초 안에 할 수 있는 일이므로!
         while (summary + ((pq.peek().getTime() - previous) * length) <= k) {
             int now = pq.poll().getTime();
             summary += (now - previous) * length;
             length -= 1; // 다 먹은 음식 제외
             previous = now; // 이전 음식 시간 재설정
         }
-
+        
+        // summary가 k보다 크다면,
         // 남은 음식 중에서 몇 번째 음식인지 확인하여 출력
         ArrayList<Food> result = new ArrayList<>();
         while (!pq.isEmpty()) {
@@ -154,6 +157,9 @@ class Solution {
                 return Integer.compare(a.getIndex(), b.getIndex());
             }
         });
+        //(k - summary) % length 
+        // = k-할애한시간(summary): 남은시간이고, length로 나눈 나머지이므로, 해당 차례의 음식이게 된다
+        // (ArrayList는 0기준 index라서 자동으로 k초 + 1의 음식이 오게 됨)
         return result.get((int) ((k - summary) % length)).getIndex();
     }
 }
