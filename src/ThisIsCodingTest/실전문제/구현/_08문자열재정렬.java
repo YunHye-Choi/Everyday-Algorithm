@@ -13,7 +13,6 @@ public class Main{
 		int index_l = 0, index_n = 0;
 		for(int i = 0; i < n; i ++) {
 			if ('A'<=arr[i]&&'Z'>=arr[i]) {
-				//letter[index_l] = arr[i];
 				letter.add(arr[i]);
 				index_l++;
 				
