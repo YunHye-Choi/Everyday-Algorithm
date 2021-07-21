@@ -1,10 +1,12 @@
+import java.util.*;
+
 class Solution {
     public int solution(String s) {
-        int answer = s.length;
+        int answer = s.length();
         // 1개 단위부터 압축 단위를 늘려가며 확인
-        for (int step = 1; step < s.length/2+1; step++) {
+        for (int step = 1; step < s.length()/2+1; step++) {
             String compressed = ""; // 압축된 문자열 저장
-            String prev = s.subString(0, step); // prev에는 이전 문자열을 저장
+            String prev = s.substring(0, step); // prev에는 이전 문자열을 저장
             int cnt = 1;
             
             // 단위(step)만큼 j를 증가시키며 prev와 sub를 비교
