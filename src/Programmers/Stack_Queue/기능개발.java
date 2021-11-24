@@ -1,3 +1,5 @@
+// 거의 한번에 돌아서 기분좋았던 문제!
+// Queue 메서드명 , 선언하는 법 잘기억해두자
 import java.util.*;
 class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
