@@ -1,4 +1,4 @@
-package Basics;
+
 
 // 문제: https://www.acmicpc.net/problem/10828
 // 스스로 해결!

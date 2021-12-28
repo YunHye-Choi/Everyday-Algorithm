@@ -1,10 +1,11 @@
+// https://www.acmicpc.net/problem/1012
 // DFS를 통해 사이클의 개수를 세는 문제
 // 문제는 내가 DFS구현을 할줄모름
 // 오늘의 목표: 풀이 보면서 정답코드와 DFS 외우자
 
 import java.util.*;
 
-public class Main {
+public class boj_1012 {
 	public static int cab[][];
     public static boolean visit[][];
     public static int m, n, k;

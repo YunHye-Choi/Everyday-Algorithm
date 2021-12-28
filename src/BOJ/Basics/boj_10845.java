@@ -1,4 +1,4 @@
-package Basics;
+
 
 // 문제: https://www.acmicpc.net/problem/10845
 // 자바에서 Queue는 추상클래스 이므로 LinkedList로 생성자를 만들어야 합니다!
