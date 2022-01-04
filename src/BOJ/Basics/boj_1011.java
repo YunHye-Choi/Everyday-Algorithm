@@ -1,3 +1,8 @@
+// https://www.acmicpc.net/problem/1011
+// 내 풀이와 완전히 다른 접근방식.. 규칙 찾는 문제였다.
+// 블로그 풀이: https://st-lab.tistory.com/79
+
+
 import java.util.*;
 public class boj_1011 {
     public static void main (String [] args) {
@@ -19,7 +24,9 @@ public class boj_1011 {
                 ans = 1;
                 end --;
 
-                // 처음은 무조건 한칸
+                // k를 결정할 때 prevK+1, prevK, prevK-1 순으로 가정해보면서
+                // 해당 k가 최대라는 가정하에
+                // 예측 sum을 구해보고, sum이 y-x보다 작거나 같으면 그 값으로 결정, 아니면 다음 후보 불러오기
                 int k = 1;
                 int sum = k;
                 int prevK = 0;
@@ -27,15 +34,27 @@ public class boj_1011 {
                     prevK = k;
                     for (int i = 0; i < 3; i ++) {
                         k = prevK + calc[i];
-                        // if (k == 0)
+                        
+                        if (getMinSum(k) <= end) {
+                            break;
+                        }
                     }
+                    System.out.println("K : " + k);
+                    sum += k;
                     if (sum == end) break;
-
                 }
-
             }
 
             System.out.println(ans);
         }
+    }
+    private static int getMinSum (int k) {
+        int sum = 0;
+        for (int i  = 1; i < k; i++) {
+            sum += i;
+        }
+        sum *=2 ;
+        sum += k;
+        return sum;
     }
 }
