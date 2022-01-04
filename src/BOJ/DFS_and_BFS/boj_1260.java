@@ -1,3 +1,5 @@
+// https://www.acmicpc.net/problem/1260
+// 내가풀어따 흐헤헤
 import java.util.*;
 public class boj_1260 {
     public static ArrayList<Integer>[] graph;
