@@ -1,5 +1,5 @@
 // https://www.acmicpc.net/problem/10451
-
+// dfs이용해서 쉽게 풀었음! 사이클 구할 때는 초기값을 같이 받아와주면 비교가 용이함
 import java.util.*;
 public class boj_10451 {
     public static ArrayList<Integer> [] graph;
