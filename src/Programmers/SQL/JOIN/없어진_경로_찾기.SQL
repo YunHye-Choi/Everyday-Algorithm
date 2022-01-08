@@ -6,3 +6,4 @@ ON B.ANIMAL_ID = A.ANIMAL_ID
 WHERE A.ANIMAL_ID IS NULL
 ORDER BY B.ANIMAL_ID
 -- LEFT OUTER JOIN 을 하면 없는 값을 찾기에 좋다!
+-- 테이블 명에 별칭을 붙일 때는 as를 쓰지 않는다
