@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
+        "src/BOJ/DFS_and_BFS",
         "src/BOJ/Basics",
-        "src/BOJ/DFS_and_BFS"
+        "src/BOJ/DP"
     ]
 }
