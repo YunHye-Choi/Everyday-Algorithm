@@ -35,8 +35,9 @@ public class boj_9466 {
         if (!visit[next]) {
             dfs(next);
         }
-        // 재방문 했다면 loop이 발생된것이므로 cnt++해주며 팀인 사람을 센다
+        // 재방문 했다면 loop이 발생된것임
         else {
+            // 팀원 여부 판단한 적 없으면 cnt++해주며 팀인 사람을 센다
             if (!finished[next]) {
                 cnt ++;
                 while(next != v) {
