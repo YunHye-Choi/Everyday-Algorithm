@@ -1,3 +1,4 @@
+// https://www.acmicpc.net/problem/9466
 // 어느 팀에도 속하지 않는 학생 수를 구해야 한다..
 // https://alwaysbemoon.tistory.com/215
 import java.util.*;
