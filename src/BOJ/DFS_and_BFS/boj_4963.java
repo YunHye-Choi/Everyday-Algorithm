@@ -1,4 +1,5 @@
 // https://www.acmicpc.net/problem/4963
+// 이차원 배열 입력받는거.. 행==y, 열==x 헷갈리지 마. 제발.
 import java.util.*;
 public class boj_4963 {
     public static boolean[][] visit;
@@ -17,8 +18,8 @@ public class boj_4963 {
 
             map = new int[w][h];
             visit = new boolean[w][h];
-            for (int i = 0; i < w; i++) {
-                for (int j = 0; j < h; j++){
+            for (int j = 0; j < h; j++) {
+                for (int i = 0; i < w; i++){
                     map[i][j] = sc.nextInt();
                 }
             }
@@ -42,6 +43,7 @@ public class boj_4963 {
 
     public static void dfs (int x, int y) {
         visit[x][y] = true;
+        
         for (int i = 0; i < 8; i++) {
             int nx = x + dx[i];
             int ny = y + dy[i];
