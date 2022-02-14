@@ -47,6 +47,8 @@ public class boj_7576 {
                 }
             }
         }
-        while
+        while (!q.isEmpty()) {
+            
+        }
     }
 }
