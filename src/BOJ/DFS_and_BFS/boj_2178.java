@@ -1,5 +1,6 @@
 // https://www.acmicpc.net/problem/2178
 // 풀이 참고: https://dhbang.tistory.com/5
+// bfs로 구한 거리가 최소 거리인 이유: https://nulls.co.kr/graph/141
 /**
  * 늘 헷갈리는 이차원 배열 && x, y && m, n 기억하자
  * - 행, 열 ==> 이차원배열[행 개수][열 개수]
