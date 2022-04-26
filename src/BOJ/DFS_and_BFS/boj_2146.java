@@ -66,7 +66,6 @@ public class boj_2146 {
                         }
                     }
                 }
-                
             }
         }
 
@@ -109,7 +108,7 @@ public class boj_2146 {
                     int nx = j + dx[k];
                     int ny = i + dy[k];
                     if (nx >= 0 && ny >= 0 && nx < n && ny < n) {
-                        if (init[ny][nx] == 0 && init[i][j] == 0 && team[ny][nx] != team[i][j]) {
+                        if (team[ny][nx] != team[i][j]) {
                             ans = Math.min(ans, dist[i][j]+ dist[ny][nx]);
                         }
                     }
