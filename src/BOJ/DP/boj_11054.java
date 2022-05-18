@@ -1,4 +1,6 @@
 // https://www.acmicpc.net/problem/11054
+// 풀이: 1년전 내 풀이..
+// 반례를 찾기 어려울 때는 사례에 집착하지 말고, logically right인지를 철저히 생각해보자!
 import java.util.*;
 public class boj_11054 {
     public static void main(String[] args) {
@@ -16,62 +18,35 @@ public class boj_11054 {
         dp2[n-1] = 1;
 
         int max1 = 1;
-        int idx1 = 0;
         for (int i = 1; i < n; i ++) {
             dp1[i] = 1;
             for (int j = 0; j < i; j ++) {
-                if (arr[j] < arr[i] && dp1[i] == dp1[j]) {
+                if (arr[j] < arr[i] && dp1[i] <= dp1[j]) {
                     dp1[i] = dp1[j] + 1;
                 }
             }
-            if ( max1 > dp1[i]){
-                max1 = dp1[i];
-            }
+            max1 = Math.max(max1, dp1[i]);
         }
 
         int max2 = 1;
-        int idx2 = n-1;
         for (int i = n-2; i >= 0; i --) {
             dp2[i] = 1;
             for (int j = n-1; j > i; j--) {
-                if (arr[j] < arr[i] && dp2[i] == dp2[j]) {
+                if (arr[j] < arr[i] && dp2[i] <= dp2[j]) {
                     dp2[i] = dp2[j] + 1;
                 }
             }
-            if ( max2 > dp1[i]){
-                max2 = dp1[i];
-            }
+            max2 = Math.max(max2, dp2[i]);
         }
 
-        int max = 1;
-        // for (int i = 0; i < n-1; i ++) {
-        //     if (arr[i] < arr[j])
-        //         max = max < dp1[i] + dp2[j] ? dp1[i] + dp2[j] : max; 
-        //     j++;
-        // }
+        int max =0;
 
+        ////////// ㅠㅠ index가 같은 것끼리 더해야 바이토닉 수열이 나옴..!! 
         for (int i = 0; i < n; i ++) {
-            if (dp1[i] == max1) {
-                for (int j = i + 1; j < n; j ++) {
-                    if (arr[i] > arr[j])
-                        max = Math.max(max, dp2[j] + max1);
-                }
-            }
+            max = Math.max(dp1[i], dp2[i]);
         }
-        
 
-        for (int i = 0; i < n; i ++) {
-            if (dp2[i] == max2) {
-                for (int j = i - 1; j >= 0; j --) {
-                    if (arr[i] > arr[j])
-                        max = Math.max(max, dp2[j] + max2);
-                }
-            }
-        }
-        // max = Math.max(max1, max);
-        // max = Math.max(max2, max);
-
-        System.out.println(max);
+        System.out.println(max-1);
         
     }
 }
