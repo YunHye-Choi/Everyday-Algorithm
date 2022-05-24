@@ -1,103 +1,51 @@
 //  https://www.acmicpc.net/problem/11725
-// 순서 무관하게 두 점을 n-1개 입력받고
-// 2번노드부터 각 노드의 부모 출력.
-// 단, 1번노드는 root
+// 진짜 트리 구현하는 문제 아님
+// 그래프를 이용해서 해결해야함 
+// 참고: https://ilmiodiario.tistory.com/142
+// 아무리 트리 구조라 해도 결국 그래프다.
+// 그래프는 결국 인접리스트 형태!
+// 그래프란건 결국 BFS, DFS를 모두 사용할 수 있다는 의미다.
 import java.util.*;
-class Node {
-    int num;
-    List<Node> children;
-
-    public Node (int n) {
-        this.num = n;
-        this.children = new ArrayList<>();
-    }
-
-    public void addChild (Node node) {
-        this.children.add(node);
-    }
-}
-
-class Tree {
-    Node root;
-    public Tree (Node rootnode) {
-        this.root = rootnode;
-    }
-    public void addNode (Node n1, Node n2) {
-        if (this.contains(n1)) {
-            n1.children.add(n2);
-        } else if (this.contains(n2)) {
-            n2.children.add(n1);
-        }
-    }
-    public boolean contains(Node node) {
-        if(node.num == root.num) {
-            return true;
-        }
-        else {
-            Queue<Node> q = new LinkedList<> ();
-            if (!root.children.isEmpty()) {
-                for (Node n : root.children) {
-                    if (n.num == node.num) return true;
-                    else {
-                        q.add(n);
-                    }
-                }
-                    
-            }
-            while(!q.isEmpty()) {
-                Node tmp = q.poll();
-                for (Node n : root.children) {
-                    if (n.num == node.num) return true;
-                    else {
-                        q.add(n);
-                    }
-                }
-            }
-            return false;
-        }
-    }
-}
-class Edge {
-    int s; // smaller
-    int l; // larger
-
-    public Edge(int n1, int n2) {
-        if (n1 < n2) {
-            this.s = n1;
-            this.l = n2;
-        } else {
-            this.s = n2;
-            this.l = n1;
-        }
-    }
-}
 public class boj_11725 {
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
         int n = sc.nextInt();
-        // arrayList edge 생성 후, node1 기준으로 정렬 한 다음
-        // tree에 node 추가
-        List<Edge> edges = new ArrayList<>();
+        List<Integer>[] graph = new ArrayList[n+1];
+        boolean visit[] = new boolean [n+1];
+
+        // 연결리스트에 연결 정보 저장
+        for (int i = 0; i < graph.length; i++) {
+            graph[i] = new ArrayList<>();
+        }
         for (int i = 0; i < n-1; i ++) {
             int n1 = sc.nextInt();
             int n2 = sc.nextInt();
-            edges.add(new Edge(n1, n2));
+            graph[n1].add(n2);
+            graph[n2].add(n1);
         }
-        
-        Comparator<Edge> c = new Comparator<Edge>() {
-            @Override
-            public int compare(Edge e1, Edge e2) {
-                return e1.s - e2.s != 0 ? e1.s - e2.s : e1.l - e2.l;
+
+        // BFS로 root의 자식부터 시작하여 모든 node를 탐색
+        // 그 와중에 방문하지 않았던 노드는 아직 부모를 밝혀내지 못한 것이므로
+        // 정답 배열에 부모 노드 추가
+        // 이 방법을 사용하면, 순서에 구애받지 않고 저장하면서도 이미 방문한 노드는 방문하지 않고,
+        // root부터 시작하기 때문에 방향성도 보장된다
+        Queue<Integer> q = new LinkedList<>();
+        q.add(1);
+        visit[1] = true;
+        int ans[] = new int[n+1];
+        while(!q.isEmpty()) {
+            Integer num = q.poll();
+            for(int i : graph[num]) {
+                if (!visit[i] ) {
+                    visit[i] = true;
+                    ans[i] = num;
+                    q.add(i);
+                }
             }
-        };
-
-        Collections.sort(edges, c);
-        Tree tree = new Tree(new Node(1));
-        for(Edge e : edges) {
-            tree.addNode(new Node(e.s), new Node(e.l));
         }
 
-        
-
+        for (int i = 2; i < n+1; i ++) {
+            System.out.println(ans[i]);
+        }
     }
 }
