@@ -5,6 +5,7 @@
 // 아무리 트리 구조라 해도 결국 그래프다.
 // 그래프는 결국 인접리스트 형태!
 // 그래프란건 결국 BFS, DFS를 모두 사용할 수 있다는 의미다.
+// root부터 시작하면 중복되거나 순서가 바뀌는 것은 걱정하지 않아도 된다는 것 또한 포인트!
 import java.util.*;
 public class boj_11725 {
     public static void main(String[] args) {
