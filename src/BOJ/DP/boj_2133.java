@@ -1,5 +1,6 @@
+// https://www.acmicpc.net/problem/2133
 // 풀이 참고:https://yabmoons.tistory.com/536 해보기
-// 해결중
+// 규칙 찾다가 예외 케이스 발생 시, 그 예외의 규칙도 찾기
 import java.util.*;
 public class boj_2133 {
     public static void main(String[] args) {
