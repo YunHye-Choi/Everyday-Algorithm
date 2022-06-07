@@ -1,3 +1,5 @@
+// https://www.acmicpc.net/problem/9461
+// 스스로 해결, 규칙이 쉬우면 type에 유의하자!
 import java.util.*;
 public class boj_9461 {
     public static void main(String[] args) {
