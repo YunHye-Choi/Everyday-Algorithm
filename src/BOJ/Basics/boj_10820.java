@@ -12,7 +12,7 @@ public class boj_10820 {
             char[] arr = str.toCharArray();
             for (char c : arr) {
                 if(c == ' ') {
-                    ans[idx][3] ++;
+                    ans[idx][3] ++; 
                 } else if('0' <= c && c <='9') {    
                     ans[idx][2] ++;
                 } else if('A' <= c && c <='Z') {
