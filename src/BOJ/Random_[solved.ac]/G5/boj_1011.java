@@ -1,3 +1,4 @@
+package G5;
 // https://www.acmicpc.net/problem/1011
 // 나에겐 너무 어려웠던 문제..
 // 확실한건 범위가 저따위면(2^32) O(n)이든 뭐든 절대 loop는 안된다.. 알자네~
