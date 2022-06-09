@@ -1,14 +1,7 @@
+//https://www.acmicpc.net/problem/1697
+// 접근 참고: https://smartpro.tistory.com/18
 package S1;
-
 import java.util.*;
-// class Pair{
-//     int depth;
-//     int val;
-//     public Pair (int depth, int val) {
-//         this.depth = depth;
-//         this.val = val;
-//     }
-// }
 public class boj_1697 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -16,34 +9,39 @@ public class boj_1697 {
         int k = sc.nextInt();
         int x = n;
         int ans = 0;
-        boolean[] visited = new boolean[100001];
+        int[] time = new int[100001];
         if (k <= n) ans = n-k;
         else {
             Queue<Integer> q = new LinkedList<>();
-            q.add(2*x);
-            q.add(x+1);
-            q.add(x-1);
-            while (!q.isEmpty()) {
-                int num = q.poll();
-                visited[num] = true;
-                if (num == k) {
+            q.add(x);
+            time[x] = 1;
+            while(!q.isEmpty()) {
+                x = q.poll();
+                if (x == k) {
+                    ans = time[x] -1;
                     break;
-                } else {
-                    if (!visited[num*2]) {
-                        q.add(num*2);
-                        visited[num*2] = true;
-                    }
-                    if (!visited[num+1]) {
-                        q.add(num+1);
-                        visited[num+1] = true;
-                    }
-                    if (!visited[num-1]) {
-                        q.add(num-1);
-                        visited[num-1] = true;
+                }
+                if (2*x <= 100000) {
+                    if(time[2*x] == 0) {
+                        q.add(2*x);
+                        time[2*x] = time[x] + 1;
                     }
                 }
-                
+                if (x+1 <= 100000) {
+                    if(time[x+1] == 0) {
+                        q.add(x+1);
+                        time[x+1] = time[x] + 1;
+                    }
+                }    
+                if (x-1 >= 0) {
+                    if(time[x-1] == 0) {
+                        q.add(x-1);
+                        time[x-1] = time[x] + 1;
+                    }
+                }
             }
+            
+            
         }
         System.out.println(ans);
     }
