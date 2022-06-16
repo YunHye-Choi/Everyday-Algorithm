@@ -1,5 +1,5 @@
 import java.util.*;
-public class boj_2247 {
+public class boj_2447 {
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
         char[][] mini = new char[3][3];
