@@ -1,3 +1,5 @@
+// https://www.acmicpc.net/problem/2468
+// 그어어의 한번에 풀었다 ㅎㅎ
 import java.util.*;
 class Point{
     int x;
