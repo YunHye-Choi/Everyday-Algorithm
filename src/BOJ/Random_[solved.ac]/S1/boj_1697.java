@@ -1,6 +1,5 @@
 //https://www.acmicpc.net/problem/1697
 // 접근 참고: https://smartpro.tistory.com/18
-package S1;
 import java.util.*;
 public class boj_1697 {
     public static void main(String[] args) {
