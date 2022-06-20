@@ -1,4 +1,5 @@
-// 메모리 사용 초과.. 배열 이용해서 생짜로 구현해보자!
+// 아.. for 문 잘못 돌려서 메모리 초과인 거였다..^^
+// Stack 활용 굳..^^
 import java.util.*;
 class Solution {
     public int solution(int[][] board, int[] moves) {
@@ -7,8 +8,10 @@ class Solution {
         int n = board.length;
         for(int j = 0; j < n; j++){
             dolls.add(new Stack<Integer>());
-            for (int i = n-1; j >= 0; j-- ) {
-                dolls.get(j).push(board[i][j]);
+            for (int i = n-1; i >= 0; i-- ) {
+                if(board[i][j] != 0) {
+                    dolls.get(j).push(board[i][j]);
+                }
             }
         }
         // System.out.println(dolls.size());
