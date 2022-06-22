@@ -1,3 +1,6 @@
+// 전반적인 아이디어는 내가! (보자마자 bfs 사용해야겠다 싶었고, 적용함)
+// 아래 블로그에서 특정 조건일때 break해야 하는 거면, 다음 거가 아니라 poll하자마자 검사해야한다는 것 깨닫고 구현
+// https://onejunu.tistory.com/110
 import java.util.*;
 class Point{
     int row;
@@ -33,27 +36,26 @@ public class boj_7562 {
 
             
         }
-        System.out.println(start.get(0).row);
         for (int i = 0; i < t; i ++){
             int n = size[i];
             boolean[][] visit = new boolean[n][n];
             Queue<Point> q = new LinkedList<>();
             Point tmp = start.get(i);
-            if(goal.get(i).row == tmp.row && goal.get(i).col == tmp.col)
-                break;
             q.add(tmp);
             visit[tmp.row][tmp.col] = true;
             while(!q.isEmpty()) {
                 Point p = q.poll();
+                
+	            if(goal.get(i).row == p.row && goal.get(i).col == p.col) {
+	            	ans[i] = p.lev;
+	            	break;
+	            }
+	               
                 for (int j = 0; j < 8; j ++) {
                     int nr = p.row + dr[j];
                     int nc = p.col + dc[j];
                     int nl = p.lev + 1;
                     if (nr >= 0 && nc >= 0 && nr < n && nc < n){
-                        if (goal.get(i).row == nr && goal.get(i).col == nc){
-                            ans[i] = nl;
-                            break;
-                        }
                         if (!visit[nr][nc]) {
                             q.add(new Point(nr, nc, nl));
                             visit[nr][nc] = true;
@@ -61,7 +63,9 @@ public class boj_7562 {
                     }
                 }
             }
-            System.out.println(ans[i]);
+        }
+        for (int a : ans) {
+        	System.out.println(a);
         }
     }
 }
