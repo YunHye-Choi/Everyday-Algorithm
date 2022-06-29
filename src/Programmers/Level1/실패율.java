@@ -32,7 +32,6 @@ class Solution {
         for(Map.Entry<Integer, Double> entry : entryList){
 	        answer[idx++] = entry.getKey();
         }
-
         return answer;
     }
 }
