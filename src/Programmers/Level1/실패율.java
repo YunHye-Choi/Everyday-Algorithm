@@ -11,8 +11,10 @@ class Solution {
             hm.put(i, 0.0);
         }
         for (int s : stages) {
+            if(s != N+1) 
             hm.put(s, hm.get(s) + 1);
         }
+       
         int players = stages.length;
         for(int i = 1; i <= N; i ++) {
             double tmp = hm.get(i);
@@ -20,18 +22,17 @@ class Solution {
             players -= tmp;
             if (players == 0) break;
         }
-        
-        List<Map.Entry<Integer, Double>> entryList = new LinkedList<>(hm.entrySet());
-        entryList.sort(new Comparator<Map.Entry<Integer, Double>> (){
-            @Override
-            public int compare(Map.Entry<Integer, Double> o1, Map.Entry<Integer, Double> o2) {
-                return (int)(o2.getValue() - o1.getValue());
-            }
-        });
-        int idx = 0;
-        for(Map.Entry<Integer, Double> entry : entryList){
-	        answer[idx++] = entry.getKey();
+         for(int i = 1; i <= N; i ++) {
+            System.out.println(hm.get(i));
         }
+        List<Map.Entry<Integer, Double>> entryList = new LinkedList<>(hm.entrySet());
+        List<Integer> keySetList = new ArrayList<>(hm.keySet());
+        Collections.sort(keySetList, (o1, o2) -> (hm.get(o2).compareTo(hm.get(o1))));
+        int idx = 0;
+        for(Integer k : keySetList){
+            answer[idx++] = k;
+        }
+
         return answer;
     }
 }
