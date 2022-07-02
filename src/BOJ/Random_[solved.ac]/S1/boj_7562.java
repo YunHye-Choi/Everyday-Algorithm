@@ -12,7 +12,7 @@ class Point{
         this.col = c;
         this.lev = l;
     }
-}
+} 
 public class boj_7562 {
     public static int[] dr = {-2, -1, 1, 2, 2, 1, -1, -2};
     public static int[] dc = {-1, -2, -2, -1, 1, 2, 2, 1};
