@@ -26,25 +26,21 @@ public class boj_11403 {
         for (int i = 0; i < n; i ++) {
             visit = new boolean[n];
             for (int j = 0; j < n; j++) {
-                if (dfs(i, j)) ans[i][j] = 1;
+                Queue<Integer> q = new LinkedList<>();
+                q.add(i);
+                while (!q.isEmpty()) {
+                    int tmp = q.poll();
+                    for (int num : graph[tmp]) {
+                        if ()
+                    }
+                }
             }
         }
-
         for (int i = 0; i < n; i ++) {
             for (int j = 0; j < n; j++) {
                 System.out.print(ans[i][j] + " ");
             }
             System.out.println();
         }
-    }
-    private static boolean dfs(int start, int end) {
-        visit[start] = true;
-        for (int num: graph[start]){
-            if (num == end) return true;
-            if (!visit[num]) {
-                dfs(num, end);
-            }
-        }
-        return false;
     }
 }
