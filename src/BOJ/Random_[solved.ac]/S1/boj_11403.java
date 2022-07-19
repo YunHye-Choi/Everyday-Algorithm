@@ -1,4 +1,6 @@
 // https://www.acmicpc.net/problem/11403
+// https://c-king.tistory.com/308 /// dfs풀이
+// https://steady-coding.tistory.com/94 //플로이드 와샬 알고리즘 풀이
 import java.util.*;
 public class boj_11403 {
     public static boolean[] visit;
@@ -26,14 +28,7 @@ public class boj_11403 {
         for (int i = 0; i < n; i ++) {
             visit = new boolean[n];
             for (int j = 0; j < n; j++) {
-                Queue<Integer> q = new LinkedList<>();
-                q.add(i);
-                while (!q.isEmpty()) {
-                    int tmp = q.poll();
-                    for (int num : graph[tmp]) {
-                        if ()
-                    }
-                }
+                
             }
         }
         for (int i = 0; i < n; i ++) {
