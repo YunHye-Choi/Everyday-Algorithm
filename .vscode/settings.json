@@ -1,8 +1,9 @@
 {
     "java.project.sourcePaths": [
+        "src/BOJ/Random_[solved.ac]",
         "src/BOJ/DP",
         "src/BOJ/DFS_and_BFS",
         "src/BOJ/Basics",
-        "src/BOJ/Random_[solved.ac]"
+        "src/modern-java"
     ]
 }
