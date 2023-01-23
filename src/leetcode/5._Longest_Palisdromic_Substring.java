@@ -5,7 +5,7 @@ class Solution {
         int lp = 0, rp = 0;
         String answer = s.substring(0, 1);
         for (int i = 1; i < arr.length; i ++){
-            String subAns = s.substring(i);
+            String subAns = s.substring(i, i+1);
             for (int j = 0; j < i; j ++) {
                 lp = j;
                 rp = i;
@@ -18,8 +18,7 @@ class Solution {
                     }
                 }
                 if (lp >= rp){
-                    subAns = s.substring(j, i);
-                    System.out.println("i: " + i+ " substring: " + subAns);
+                    subAns = s.substring(j, i+1);
                     break;
                 }
             }
