@@ -47,7 +47,7 @@ class Solution {
             q.add(new Node(0, "z"));
         }
         while(digits.length() > 1 && !q.isEmpty()) {
-            Node n = q.poll();
+            Node n = q.peek();
             
             int nextDepth = n.depth + 1;
             if (nextDepth == digits.length()) break;
@@ -55,6 +55,7 @@ class Solution {
             c = digits.charAt(nextDepth);
             String str = n.str;
             System.out.println(str);
+            q.poll();
             if (c == '2') {
                 q.add(new Node(nextDepth, str + "a"));
                 q.add(new Node(nextDepth, str + "b"));
